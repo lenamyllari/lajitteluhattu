@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lajitteluhattu</title>
+</head>
+<style>
+    .myButton
+    {
+        top:300px;
+        color: olivedrab;
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+        background: url("../img/Sorting_Hat.png");
+        background-size: cover;
+        border: none;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+
+    }
+    header{
+        flex: 100%;
+        font-size: 40px;
+        color: darkolivegreen;
+    }
+    img{
+        max-width: 300px;
+    }
+
+</style>
+<body>
+<header>Kysy lajitteluhatulta mihin kouluun menet</header>
+<button class="myButton" onclick="hattu()"></button>
+
+
+<script>
+ var koululogo=document.createElement("IMG");
+    function hattu() {
+        koululogo.removeAttribute("src");
+        let nimi = prompt('Anna nimesi');
+
+        if (nimi == null || nimi === ""){
+            alert('Olet jästi!');
+
+        }
+        else {
+            let koulu;
+            let kouluNumero = Math.floor(Math.random() * 4 + 1);
+            switch (kouluNumero) {
+                case 1:
+                    koulu = 'Rohkelikko';
+                    koululogo.setAttribute("src", "../img/Gryffindor.png");
+                    break;
+                case 2:
+                    koulu = 'Luihuinen';
+                    koululogo.setAttribute("src", "../img/slytherin.png");
+                    break;
+                case 3:
+                    koulu = 'Puuskupuh';
+                    koululogo.setAttribute("src", "../img/hufflepuff.png");
+                    break;
+                case 4:
+                    koulu = 'Korpinkynsi';
+                    koululogo.setAttribute("src", "../img/ravenclaw.png");
+                    break;
+                default:
+                    koulu = 'muggle';
+            }
+
+            alert(nimi + ', olet ' + koulu);
+        }
+    }
+    document.body.appendChild(koululogo);
+
+</script>
+</body>
+</html>
